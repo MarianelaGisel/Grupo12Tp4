@@ -4,6 +4,7 @@ package grupo12tp4;
 import java.util.HashSet;
 
 public class Alumno {
+    //Atributos
     private int legajo;
     private String apellido;
     private String nombre;

@@ -100,6 +100,8 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTfNombreAlumnoActionPerformed
 
+    
+    //Botono agregar alumno
     private void jBAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarAlumnoActionPerformed
     int legajo = Integer.parseInt(jTfLegajo.getText());
     String nombrealumno = jTfNombreAlumno.getText();
