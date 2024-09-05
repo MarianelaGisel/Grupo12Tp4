@@ -70,6 +70,11 @@ public class SistemaAlumnos extends javax.swing.JFrame {
         jMenuInscripcion.setText("Registro");
 
         jMenuItem3.setText("Inscripcion");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenuInscripcion.add(jMenuItem3);
 
         jMenuBar1.add(jMenuInscripcion);
@@ -124,6 +129,16 @@ public class SistemaAlumnos extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jMenuItemMateriaActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        FormularioInscripcion forInscripcion = new FormularioInscripcion();
+        forInscripcion.setVisible(true);
+        Escritorio.add(forInscripcion);
+        Escritorio.moveToFront(forInscripcion);
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
    
     public static void main(String args[]) {
