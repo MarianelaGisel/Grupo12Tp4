@@ -1,20 +1,20 @@
 
-package grupo12tp4;
+package grupo12tp4.colegio;
 
 public class Materia {
-    
     //Atributos
-    private int idMateria;
+    private int idMateria ; 
     private String nombreMateria;
-    private int año;
-
+    private int anio ;
+   
+    
     //Constructor
-    public Materia(int idMateria, String nombreMateria, int año) {
+    public Materia(int idMateria, String nombreMateria, int anio) {
         this.idMateria = idMateria;
         this.nombreMateria = nombreMateria;
-        this.año = año;
+        this.anio = anio;
     }
-
+    
     //Metodos getter
     public int getIdMateria() {
         return idMateria;
@@ -25,7 +25,7 @@ public class Materia {
     }
 
     public int getAnio() {
-        return año;
+        return anio;
     }
 
     //Metodos setter
@@ -37,42 +37,46 @@ public class Materia {
         this.nombreMateria = nombreMateria;
     }
 
-    public void setAño(int año) {
-        this.año = año;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
     
     
-    //Sobrescribimos los metodos 'hashCode()' y 'equals()' que trabajan en conjunto y son de la clase Object
-    
-    @Override
-    public int hashCode(){
-        int hash = 7;
-        hash = 29 * hash + this.idMateria ;
-        
-        return hash ;
-    }
-    
-    @Override
-    public boolean equals(Object obj){
-        if(this == obj)
-            return true;
-        
-        if(obj == null)
-            return false;
-    
-        if(getClass()!= obj.getClass())
-            return false;
-    
-        return true;
-    }
-    
-    
-     //Modificamos el codigo toString para q nos muestre en el JComboBoxS
+    //sobrescribimos el metodo o
     @Override
     public String toString(){
-        
         return nombreMateria;
     
     }
+    
+    
+    
+    //sobresScribimos el metodo 'hashCode'
+    @Override
+    public int hashCode(){
+       int hash = 5;
+       hash = 89 * hash + this.idMateria;
+       return hash;
+   }
+    
+    //sobrescribimos el metodo 'equals'
+    @Override
+    public boolean equals(Object obj){
+        if(this == obj)
+            return true;  
+        
+        if(obj == null)
+            return false;
+        
+        if(getClass() != obj.getClass())
+            return false;
+    
+        final Materia other = (Materia) obj;
+        if(this.idMateria != other.idMateria){
+            return false;
+        }
+        return true;
+    }
+    
     
 }

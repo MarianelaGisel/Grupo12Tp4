@@ -1,9 +1,16 @@
 
 package grupo12tp4;
 
+import java.util.HashSet;
+
 
 public class SistemaAlumnos extends javax.swing.JFrame {
+    //HashSet Alumno y Materia
+    public static HashSet<Alumno> alumnos = new HashSet<>();
+    public static HashSet <Materia> materias = new HashSet<>();
     
+    
+    //constructor
     public SistemaAlumnos() {
         initComponents();
         this.setLocationRelativeTo(null) ;
@@ -14,44 +21,40 @@ public class SistemaAlumnos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Escritorio = new javax.swing.JDesktopPane();
+        escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuAlumno = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jmAgregarAlumno = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItemMateria = new javax.swing.JMenuItem();
         jMenuInscripcion = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jmInscripcion = new javax.swing.JMenuItem();
         jMenuSalir = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jmiSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(700, 600));
 
-        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
-        Escritorio.setLayout(EscritorioLayout);
-        EscritorioLayout.setHorizontalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        EscritorioLayout.setVerticalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 308, Short.MAX_VALUE)
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         jMenuAlumno.setText("Alumno");
-        jMenuAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuAlumnoActionPerformed(evt);
-            }
-        });
 
-        jMenuItem1.setText("Agregar Alumno");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jmAgregarAlumno.setText("Agregar Alumno");
+        jmAgregarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jmAgregarAlumnoActionPerformed(evt);
             }
         });
-        jMenuAlumno.add(jMenuItem1);
+        jMenuAlumno.add(jmAgregarAlumno);
 
         jMenuBar1.add(jMenuAlumno);
 
@@ -69,20 +72,25 @@ public class SistemaAlumnos extends javax.swing.JFrame {
 
         jMenuInscripcion.setText("Registro");
 
-        jMenuItem3.setText("Inscripcion");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jmInscripcion.setText("Inscripcion");
+        jmInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jmInscripcionActionPerformed(evt);
             }
         });
-        jMenuInscripcion.add(jMenuItem3);
+        jMenuInscripcion.add(jmInscripcion);
 
         jMenuBar1.add(jMenuInscripcion);
 
         jMenuSalir.setText("Salir");
 
-        jMenuItem4.setText("Salir");
-        jMenuSalir.add(jMenuItem4);
+        jmiSalir.setText("Salir");
+        jmiSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSalirActionPerformed(evt);
+            }
+        });
+        jMenuSalir.add(jmiSalir);
 
         jMenuBar1.add(jMenuSalir);
 
@@ -92,55 +100,69 @@ public class SistemaAlumnos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(escritorio)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        FormularioAlumno formAlumno = new FormularioAlumno();
-        formAlumno.setVisible(true);
-        Escritorio.add(formAlumno);
-        Escritorio.moveToFront(formAlumno);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+   
+    
+    //(a)Boton 'Agregar Alumno', paso 'alumnos'
+    private void jmAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAgregarAlumnoActionPerformed
+       escritorio.removeAll();
+       escritorio.repaint();
+       FormularioAlumno fa = new FormularioAlumno (alumnos);
+       fa.setVisible(true);
+       escritorio.add(fa);
+       escritorio.moveToFront(fa);
+  
+    }//GEN-LAST:event_jmAgregarAlumnoActionPerformed
 
-    private void jMenuAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAlumnoActionPerformed
-       
-    }//GEN-LAST:event_jMenuAlumnoActionPerformed
-
-    //Ventana Materia
+    //(b)Boton 'Agregar Materia', paso 'materias'
     private void jMenuItemMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMateriaActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        FormularioMateria forMateria = new FormularioMateria();
-        forMateria.setVisible(true);
-        Escritorio.add(forMateria);
-        Escritorio.moveToFront(forMateria);
-        
-        
-        
+        escritorio.removeAll();
+        escritorio.repaint();
+        FormularioMateria fm = new FormularioMateria(materias);
+        fm.setVisible(true);
+        escritorio.add(fm);
+        escritorio.moveToFront(fm);
     }//GEN-LAST:event_jMenuItemMateriaActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
-        FormularioInscripcion forInscripcion = new FormularioInscripcion();
-        forInscripcion.setVisible(true);
-        Escritorio.add(forInscripcion);
-        Escritorio.moveToFront(forInscripcion);
+    
+    //(c)Botono 'Registro', paso 'alumnos' y 'materias
+    private void jmInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmInscripcionActionPerformed
+       escritorio.removeAll();
+       escritorio.repaint();
+       FormularioInscripcion fi = new FormularioInscripcion(alumnos,materias);
+       fi.setVisible(true);
+       escritorio.add(fi);
+       escritorio.moveToFront(fi);
         
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    
+    }//GEN-LAST:event_jmInscripcionActionPerformed
 
+    //(d)Boton 'Salir'
+    private void jmiSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSalirActionPerformed
+        this.dispose(); //Cierra el JInternalFrame
+        
+        
+        
+    }//GEN-LAST:event_jmiSalirActionPerformed
+
+    
    
+    
+    
+    
+    
+    
+    
+    //Main
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -174,15 +196,18 @@ public class SistemaAlumnos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenuAlumno;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuInscripcion;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItemMateria;
     private javax.swing.JMenu jMenuSalir;
+    private javax.swing.JMenuItem jmAgregarAlumno;
+    private javax.swing.JMenuItem jmInscripcion;
+    private javax.swing.JMenuItem jmiSalir;
     // End of variables declaration//GEN-END:variables
+
+
+
 }
