@@ -6,8 +6,8 @@ import java.util.HashSet;
 
 public class SistemaAlumnos extends javax.swing.JFrame {
     //HashSet Alumno y Materia
-    public static HashSet<Alumno> alumnos = new HashSet<>();
-    public static HashSet <Materia> materias = new HashSet<>();
+    public  HashSet<Alumno> alumnos = new HashSet<>();
+    public  HashSet <Materia> materias = new HashSet<>();
     
     
     //constructor

@@ -52,17 +52,23 @@ public class Materia {
         return hash ;
     }
     
+    /*Revisar bien para que me deje seleccionar el combobox*/
     @Override
     public boolean equals(Object obj){
         if(this == obj)
-            return true;
+            return true; // Si es el mismo objeto, son iguales
         
         if(obj == null)
-            return false;
+            return false; // Si el objeto comparado es nulo, no son iguales
     
         if(getClass()!= obj.getClass())
-            return false;
+            return false; // Si son de clases diferentes, no son iguales
     
+        /*Esta linea de codigo si no se 'coloca' no nos dejara seleccionar libremente los valores del ComboBox.*/
+        final Materia other = (Materia) (obj);
+        if (this.idMateria != other.idMateria){
+            return false;
+        }/*fin linea de codigo importante.*/
         return true;
     }
     

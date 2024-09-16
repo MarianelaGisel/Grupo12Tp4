@@ -30,10 +30,10 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jbInscribir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jcMaterias = new javax.swing.JComboBox<>();
         jcAlumnos = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jBsalir = new javax.swing.JButton();
+        jcMaterias = new javax.swing.JComboBox<>();
 
         setClosable(true);
 
@@ -59,6 +59,12 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jcMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcMateriasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,9 +76,11 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jcMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jcAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(74, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jcAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jbInscribir)
@@ -80,7 +88,7 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
                 .addComponent(jBsalir)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(52, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
@@ -124,6 +132,10 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
        this.dispose();
     }//GEN-LAST:event_jBsalirActionPerformed
 
+    private void jcMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcMateriasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcMateriasActionPerformed
+
     
     
 
@@ -140,12 +152,14 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
    
   //(a)Cargar ComboBox Materia
     private void cargarMateria(){
+        
         for(Materia m: materias)
             jcMaterias.addItem(m); //agregamos la materia al combo
     }
 
     //(b) Cargar ComboBox Alumno
     private void cargarAlumno(){
+        
         for(Alumno a : alumnos)
             jcAlumnos.addItem(a);
     }
